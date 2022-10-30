@@ -40,6 +40,7 @@ def hedron_make_cc_https_easy():
     # We're pointing our own mirror of google/boringssl:master-with-bazel to get Renovate auto-update. Otherwise, Renovate will keep moving us back to master, which doesn't support Bazel. See https://github.com/renovatebot/renovate/issues/18492
     maybe(
         http_archive,
+        name = "boringssl",
         url = "https://github.com/hedronvision/boringssl/archive/99c3084e225ce705f4147eeb1059c1c30e409846.tar.gz",
         sha256 = "a4f019c4def467d760f672ea6b17d161590111f74ba7983c2bba3849c17451f4",
         strip_prefix = "boringssl-99c3084e225ce705f4147eeb1059c1c30e409846",
