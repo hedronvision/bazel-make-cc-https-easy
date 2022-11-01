@@ -49,6 +49,7 @@ cc_library(
         "ENABLE_IPV6",
         "CURL_DISABLE_NTLM", # Proprietary Microsoft auth you almost certainly don't need.
         # Generally, disabling features didn't seem to reduce library size much. Tried proxy, progress, auth. Reductions were only ~10kb, so we'll leave them in.
+
         "USE_THREADS_POSIX",
         "USE_UNIX_SOCKETS",
 
@@ -160,12 +161,12 @@ cc_library(
             "HAVE_RAND_EGD",
         ],
         "@//Bazel/Platforms:Apple": ["USE_SECTRANSP", "HAVE_GETIFADDRS", "HAVE_MACH_ABSOLUTE_TIME", "HAVE_SYS_SOCKIO_H"],
-        # WinSSL windows CMAKE_USE_SCHANNEL
+        # WinSSL windows USE_SCHANNEL
     }) + [
         "HAVE_LIBZ",
-        # See https://github.com/hedronvision/bazel-make-cc-https-easy/issues/2, if you're looking for more compression libraries
+        # See https://github.com/hedronvision/bazel-make-cc-https-easy/issues/2 if you're looking for more compression libraries
     ],
-    linkopts = ["-lz"], # Android and Apple platforms bundle zlib. For Windows, see if we can reuse Boost's. https://github.com/nelhage/rules_boost/issues/274
+    linkopts = ["-lz"], # Android and Apple OSs bundle zlib. For Windows, see if we can reuse Boost's, but should have a flag to control whether it's bundled. It's less of a no brainer when the OS doesn't provide it. See also discussion in https://github.com/nelhage/rules_boost/issues/274
     deps = select({
         "@platforms//os:android" : ["@boringssl//:ssl"],
         "@platforms//os:macos" : [":Apple"],

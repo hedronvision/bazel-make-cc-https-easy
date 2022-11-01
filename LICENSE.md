@@ -1,6 +1,6 @@
-# Hedron's HTTPS Client Rules for Bazel — License
+# Hedron's Bazel Rules for C++ HTTPS Requests — License
 
-We've received a bunch of requests to release this, since C++ is perpetually missing an easy way to make HTTPs requests.
+We've received a bunch of requests to release this since C++ is perpetually missing an easy way to make HTTPS requests.
 Together, let's make what was originally a handy, Hedron-internal tool more useful to more people. We hope that it's a win for you!
 
 **Goals:**
