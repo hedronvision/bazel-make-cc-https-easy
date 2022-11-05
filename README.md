@@ -90,3 +90,10 @@ This should work seamlessly for macOS, Android, iOS, and the other Apple platfor
 If you'd like it for Linux or Windows, we'd love your help. It should be a fair bit easier to add support than to do yourself from scratch. We'll help guide. And your code will then work across platforms for free. Plus, you'll be helping everyone out. Please reach out on the linked issue when you start up on it, just to make sure people don't duplicate efforts.
 - Linux: https://github.com/hedronvision/bazel-make-cc-https-easy/issues/6
 - Windows: https://github.com/hedronvision/bazel-make-cc-https-easy/issues/5
+
+---
+
+## Other Projects Likely Of Interest
+
+If you're using Bazel for C or C++, it's likely you're also in need of a better tooling, like helping your editor understand your code and provide autocomplete.
+If so, please check out our other project, [hedronvision/bazel-compile-commands-extractor](https://github.com/hedronvision/bazel-compile-commands-extractor).
