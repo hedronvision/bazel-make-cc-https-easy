@@ -4,7 +4,7 @@
 // If you're here, you're probably looking to:
 // (1) Make updates for a dependency fully automated. Whitelist it at <TAG0>
 // (2) Add CI. Add to "requiredStatusChecks", below.
-// (3) Customize Renovate behavior further. Or add auto-updating for another type of build system (see "includePaths", below).
+// (3) Customize Renovate behavior further. Or add auto-updating for another type of build system.
   // For docs, see: https://docs.renovatebot.com/configuration-options/
   // To debug, it can be helpful to looks at Renovate's runs/logs: https://app.renovatebot.com/dashboard#github/hedronvision/bazel-make-cc-https-easy
   // This file is .json5, so we can have helpful comments, like this one :) [Normal JSON, Renovate's default, has no comments.]
