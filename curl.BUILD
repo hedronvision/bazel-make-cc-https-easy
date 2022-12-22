@@ -160,7 +160,11 @@ cc_library(
             "HAVE_POLL_FINE",
             "HAVE_RAND_EGD",
         ],
-        "@//Bazel/Platforms:Apple": ["USE_SECTRANSP", "HAVE_GETIFADDRS", "HAVE_MACH_ABSOLUTE_TIME", "HAVE_SYS_SOCKIO_H"],
+        # Merge these together if/when https://github.com/bazelbuild/platforms/issues/37 is resolved.
+        "@platforms//os:macos" : ["USE_SECTRANSP", "HAVE_GETIFADDRS", "HAVE_MACH_ABSOLUTE_TIME", "HAVE_SYS_SOCKIO_H"],
+        "@platforms//os:ios" : ["USE_SECTRANSP", "HAVE_GETIFADDRS", "HAVE_MACH_ABSOLUTE_TIME", "HAVE_SYS_SOCKIO_H"],
+        "@platforms//os:tvos" : ["USE_SECTRANSP", "HAVE_GETIFADDRS", "HAVE_MACH_ABSOLUTE_TIME", "HAVE_SYS_SOCKIO_H"],
+        "@platforms//os:watchos" : ["USE_SECTRANSP", "HAVE_GETIFADDRS", "HAVE_MACH_ABSOLUTE_TIME", "HAVE_SYS_SOCKIO_H"],
         # WinSSL windows USE_SCHANNEL
     }) + [
         "HAVE_LIBZ",
@@ -169,6 +173,7 @@ cc_library(
     linkopts = ["-lz"], # Android and Apple OSs bundle zlib. For Windows, see if we can reuse Boost's, but should have a flag to control whether it's bundled. It's less of a no brainer when the OS doesn't provide it. See also discussion in https://github.com/nelhage/rules_boost/issues/274
     deps = select({
         "@platforms//os:android" : ["@boringssl//:ssl"],
+        # Merge these together if/when https://github.com/bazelbuild/platforms/issues/37 is resolved.
         "@platforms//os:macos" : [":Apple"],
         "@platforms//os:ios" : [":Apple"],
         "@platforms//os:tvos" : [":Apple"],
