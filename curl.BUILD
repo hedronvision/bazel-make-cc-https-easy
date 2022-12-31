@@ -8,10 +8,17 @@ alias(
             # ls /Applications/Xcode.app/Contents/Developer/Platforms/***/curl.h
                 # (*** follows symlinks)
         "@platforms//os:macos": ":system",
+        # Linux: Libcurl is usually preinstalled--though one needs to install headers to compile,
+            # e.g. sudo apt-get install libcurl4-openssl-dev
+            # For more install instructions, see libcurl in  https://everything.curl.dev/get/linux
+        # More generally, even for deps that aren't preinstalled, Linux, unlike most other platforms, usually has a functional package management system built in, so we should be linking to pre-installed libraries--and sharing them across the system--rather than bundling everything.
+        "@platforms//os:linux": ":system",
         # iOS: you might be concerned about cURL using BSD sockets, and old references in the docs to that not waking the cellular modem. That seems to not have been an issue since push notifications. See https://developer.apple.com/forums/thread/48996
-        # Android: Doesn't appear to bundle libcurl. ls external/androidndk/ndk/***/*curl*
-        # Linux: most distributions don't auto-bundle curl. Arch does, but not Ubuntu, Debian, Redhat, CentOS See https://everything.curl.dev/get/linux
-        # Windows: started bundling curl.exe in a release of Windows 10, but not in older version. I don't know if they bundle libcurl, but regardless, we should bundle it to support older versions of Windows
+        # Android:
+            # Doesn't appear to bundle libcurl.
+                # ls external/androidndk/ndk/***/*curl*
+         # Someday there might be a prefab AAR version that's official/widely enough used that we should depend on it via Maven, but that day is not today. The only one I currently see is https://github.com/vvb2060/curl-android, and I think I'd need to see something a bit more official to switch.
+        # Windows: started bundling curl.exe in a release of Windows 10, but not in older versions. I don't know if they bundle libcurl, but regardless, we should bundle it to support older versions of Windows
         "//conditions:default": ":source",
     })
 )

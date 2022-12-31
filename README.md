@@ -32,7 +32,8 @@ http_archive(
 
     # Replace the commit hash in both places (below) with the latest, rather than using the stale one here.
     # Even better, set up Renovate and let it do the work for you (see "Suggestion: Updates" in the README).
-    url = "https://github.com/hedronvision/bazel-make-cc-https-easy/archive/9f7f680dce7b33dba416b75578431a2f055c595a.tar.gz",        strip_prefix = "bazel-make-cc-https-easy-9f7f680dce7b33dba416b75578431a2f055c595a",
+    url = "https://github.com/hedronvision/bazel-make-cc-https-easy/archive/9f7f680dce7b33dba416b75578431a2f055c595a.tar.gz",
+    strip_prefix = "bazel-make-cc-https-easy-9f7f680dce7b33dba416b75578431a2f055c595a",
     # When you first run this tool, it'll recommend a sha256 hash to put here with a message like: "DEBUG: Rule 'hedron_compile_commands' indicated that a canonical reproducible form can be obtained by modifying arguments sha256 = ..."
 )
 load("@hedron_make_cc_https_easy//:workspace_setup.bzl", "hedron_make_cc_https_easy")
@@ -44,6 +45,12 @@ hedron_make_cc_https_easy()
 As with all platform-dependent C/C++ in Bazel, you'll need to set up [`platform_mappings`](https://bazel.build/concepts/platforms#platform-mappings) until Bazel resolves its outstanding issues.
 
 It's not hard if you know what to to do, but can be tricky to figure out. If you'd like help with this, please let us know over at https://github.com/hedronvision/bazel-make-cc-https-easy/issues/4
+
+#### If you're compiling for Linux...
+
+You'll need to make sure you have the libcurl development headers installed so you can use them from your code.
+
+Run `sudo apt-get install libcurl4-openssl-dev` (Debian/Ubuntu) or the equivalent for your distribution. For install instructions for other distributions, see libcurl entries here: https://everything.curl.dev/get/linux. And, as always, if you learn things that would help future users, please file a PR or issue.
 
 ### Second, make network requests from your C++ code.
 
@@ -87,9 +94,7 @@ Way to make it through setup. Cheers to being able to easily use the power of th
 
 This should work seamlessly for macOS, Android, iOS, and the other Apple platforms.
 
-If you'd like it for Linux or Windows, we'd love your help. It should be a fair bit easier to add support than to do it yourself from scratch. We'll help guide. And your code will then work across platforms for free. Plus, you'll be helping everyone out. Please reach out on the linked issue when you start up on it, just to make sure people don't duplicate efforts.
-- Linux: https://github.com/hedronvision/bazel-make-cc-https-easy/issues/6
-- Windows: https://github.com/hedronvision/bazel-make-cc-https-easy/issues/5
+If you'd like it for Windows, we'd love your help. It should be a fair bit easier to add support than to do it yourself from scratch. We'll help guide. And your code will then work across platforms for free. Plus, you'll be helping everyone out. Please reach out on [the issue](https://github.com/hedronvision/bazel-make-cc-https-easy/issues/5) when you start up on it, just to make sure people don't duplicate efforts.
 
 ---
 

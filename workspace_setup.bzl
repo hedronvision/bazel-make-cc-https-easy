@@ -7,7 +7,7 @@ def hedron_make_cc_https_easy():
     """Setup a WORKSPACE so you can easily make https requests from C++.
 
     Ensures you have CPR, whose interface you want to use...
-    ... and its dependncies: curl and boringssl.
+    ... and its dependencies: curl and boringssl.
     """
 
     # Unified setup for users' WORKSPACES and this workspace when used standalone.
