@@ -32,8 +32,8 @@ http_archive(
 
     # Replace the commit hash in both places (below) with the latest, rather than using the stale one here.
     # Even better, set up Renovate and let it do the work for you (see "Suggestion: Updates" in the README).
-    url = "https://github.com/hedronvision/bazel-make-cc-https-easy/archive/9f7f680dce7b33dba416b75578431a2f055c595a.tar.gz",
-    strip_prefix = "bazel-make-cc-https-easy-9f7f680dce7b33dba416b75578431a2f055c595a",
+    url = "https://github.com/hedronvision/bazel-make-cc-https-easy/archive/3980f4d73ac4a829f25d0438e8256baf1de51b5c.tar.gz",
+    strip_prefix = "bazel-make-cc-https-easy-3980f4d73ac4a829f25d0438e8256baf1de51b5c",
     # When you first run this tool, it'll recommend a sha256 hash to put here with a message like: "DEBUG: Rule 'hedron_compile_commands' indicated that a canonical reproducible form can be obtained by modifying arguments sha256 = ..."
 )
 load("@hedron_make_cc_https_easy//:workspace_setup.bzl", "hedron_make_cc_https_easy")
