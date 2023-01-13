@@ -92,7 +92,7 @@ Way to make it through setup. Cheers to being able to easily use the power of th
 
 ## OS Support
 
-This should work seamlessly for macOS, Android, iOS, and the other Apple platforms.
+This should work seamlessly for macOS, Linux, Android, iOS, watchOS, and tvOS.
 
 If you'd like it for Windows, we'd love your help. It should be a fair bit easier to add support than to do it yourself from scratch. We'll help guide. And your code will then work across platforms for free. Plus, you'll be helping everyone out. Please reach out on [the issue](https://github.com/hedronvision/bazel-make-cc-https-easy/issues/5) when you start up on it, just to make sure people don't duplicate efforts.
 
