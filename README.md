@@ -52,6 +52,8 @@ You'll need to make sure you have the libcurl development headers installed so y
 
 Run `sudo apt-get install libcurl4-openssl-dev` (Debian/Ubuntu) or the equivalent for your distribution. For install instructions for other distributions, see libcurl entries here: https://everything.curl.dev/get/linux. And, as always, if you learn things that would help future users, please file a PR or issue.
 
+Aside: It strikes us that there's an opportunity here for an extension that would let Bazel better support Linux package managers. Please see [this proposal](https://github.com/bazelbuild/bazel/issues/17099#issue-1514981316) if you'd be interested in that or in helping hack on it. Let's continue the discussion on that issue, whether or not Google is interested in implementing it themselves.
+
 ### Second, make network requests from your C++ code.
 
 Add `"@cpr"` to your `deps`, and use the wonderful libcpr interface!
