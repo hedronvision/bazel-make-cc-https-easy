@@ -19,6 +19,7 @@
     "automergeType": "branch", // No PR unless tests fail; just do it.
     "matchPackageNames" : [ // Add Bazel name= parameter here. <TAG0>.
       "boringssl",
+      "com_github_nelhage_rules_boost",
       "cpr",
     ],
   }, {
