@@ -49,8 +49,10 @@ def hedron_make_cc_https_easy():
     )
 
     # libcurl needs to bundle an SSL library on Android. We're using boringssl because it has easy Bazel support. Despite it's Google-only orientation, it's also used in, e.g., Envoy. But if LibreSSL had Bazel wrappings, we'd probably consider it.
-    # We're pointing our own mirror of google/boringssl:master-with-bazel to get Renovate auto-update. Otherwise, Renovate will keep moving us back to master, which doesn't support Bazel. See https://github.com/renovatebot/renovate/issues/18492
-    # OPTIMNOTE: Their BUILD files should really be using assembly on Android https://bugs.chromium.org/p/boringssl/issues/detail?id=531
+    # We're pointing our own mirror of google/boringssl:master-with-bazel to get Renovate auto-update. Otherwise, Renovate will keep moving us back to master, which doesn't support Bazel.
+        # https://bugs.chromium.org/p/boringssl/issues/detail?id=542 tracks having bazel on the boringssl master branch.
+        # https://github.com/renovatebot/renovate/issues/18492 tracks Renovate support for non-default branches.
+    # OPTIMNOTE: Boringssl's BUILD files should really be using assembly on Windows, if we add support https://bugs.chromium.org/p/boringssl/issues/detail?id=531
     maybe(
         http_archive,
         name = "boringssl",
