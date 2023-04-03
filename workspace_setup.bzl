@@ -31,9 +31,9 @@ def hedron_make_cc_https_easy():
     maybe(
         http_archive,
         name = "com_github_nelhage_rules_boost",
-        url = "https://github.com/nelhage/rules_boost/archive/a8f658fe5077411bde29b2b320166f2bfba56f8d.tar.gz",
-        sha256 = "529e1a36baa58f54ee5ca694b74fa85f4ad536a8023a34c4fad2c049999696de",
-        strip_prefix = "rules_boost-a8f658fe5077411bde29b2b320166f2bfba56f8d",
+        url = "https://github.com/nelhage/rules_boost/archive/abb6f9e9a024ebf4714786314c82a4252da3d4ed.tar.gz",
+        sha256 = "bbc3ae0beb34198606d04f705e1596e319c18df209442600dbb3b4620a52c606",
+        strip_prefix = "rules_boost-abb6f9e9a024ebf4714786314c82a4252da3d4ed",
     )
     boost_deps()
 
