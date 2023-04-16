@@ -5,8 +5,8 @@ load("@com_github_nelhage_rules_boost//:boost/boost.bzl", "boost_deps")
 
 
 def hedron_keep_cc_https_easy():
-    """Part 2 of setting up a WORKSPACE so you can easily make https requests from C++. 
-    
+    """Part 2 of setting up a WORKSPACE so you can easily make https requests from C++.
+
     Sorry it can't be unified with hedron_make_cc_https_easy(). Bazel implementation restrictions."""
 
     # Below the interface boundary:
