@@ -38,6 +38,8 @@ http_archive(
 )
 load("@hedron_make_cc_https_easy//:workspace_setup.bzl", "hedron_make_cc_https_easy")
 hedron_make_cc_https_easy()
+load("@hedron_make_cc_https_easy//:transitive_workspace_setup.bzl", "hedron_keep_cc_https_easy")
+hedron_keep_cc_https_easy()
 ```
 
 #### If you're using the Apple or Android-specific rules...
@@ -70,6 +72,12 @@ cpr::Response r = cpr::Get(cpr::Url{"https://github.com"},
 ```
 
 For more on why we chose and recommend CPR, see [WhyCPR.md](WhyCPR.md)
+
+Note that you'll need to enable C++17 or greater, if you haven't already. We satisfy this by putting the following in our .bazelrc:
+```
+build --cxxopt=-std=gnu++20
+build --per_file_copt=.*\.mm\$@-std=gnu++20
+```
 
 #### If you're using C...
 

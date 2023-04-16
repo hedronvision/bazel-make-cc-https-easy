@@ -1,8 +1,9 @@
 # Do not change the filename; it is part of the user interface.
 
+
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("@bazel_tools//tools/build_defs/repo:utils.bzl", "maybe")
-load("@com_github_nelhage_rules_boost//:boost/boost.bzl", "boost_deps")
+
 
 def hedron_make_cc_https_easy():
     """Setup a WORKSPACE so you can easily make https requests from C++.
@@ -35,7 +36,7 @@ def hedron_make_cc_https_easy():
         sha256 = "70a77b7a9d9256a0b07b2749289ce80e66e7e7cb583eb4ac31604a9badfed114",
         strip_prefix = "rules_boost-fc33e89dad59ca36b71932e04e7e28ca9fa030c6",
     )
-    boost_deps()
+    # boost_deps is called in transitive_sorkspace_setup
 
     # CPR wraps libcurl
     # Note: libcurl updates are auto-PRd but not auto-merged, because the defines required to build it change frequently enough that you need to manually keep curl.BUILD in sync with https://github.com/curl/curl/commits/master/CMakeLists.txt. @cpsauer is responsible.
