@@ -32,9 +32,9 @@ def hedron_make_cc_https_easy():
     maybe(
         http_archive,
         name = "com_github_nelhage_rules_boost",
-        url = "https://github.com/nelhage/rules_boost/archive/623f5cb627e06851cd8378051fb3eb16bce487d4.tar.gz",
-        sha256 = "a7883b3d30653dd4bc6dc3ea1046e3f4515492d709a83bee8ead50f3ac9d8389",
-        strip_prefix = "rules_boost-623f5cb627e06851cd8378051fb3eb16bce487d4",
+        url = "https://github.com/nelhage/rules_boost/archive/086d0baee11189ddcbcff01714d0b243c142c7ca.tar.gz",
+        sha256 = "6494cab0968efa2175b194bbdd44b884aca42a0dc9ac1b20b104b53fe64e3776",
+        strip_prefix = "rules_boost-086d0baee11189ddcbcff01714d0b243c142c7ca",
     )
     # boost_deps is called in transitive_sorkspace_setup
 
