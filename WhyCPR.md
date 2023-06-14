@@ -19,9 +19,9 @@ Here were the other options we seriously considered, ranked from closest to furt
 - https://github.com/microsoft/cpprestsdk aka Casablanca
   - Sadly retired by Microsoft and no longer recommended for use in new projects. See the top of their Readme. Would otherwise likely have been our choice.
 - https://github.com/spotify/NFHTTP
-  - Killed because I happened to stuble upon a *very* problematic security choice.
+  - Killed because I happened to stumble upon a *very* problematic security choice.
     - Evaporates trust, because who knows what else is in there...
       - See disabling of SSL certificate verification on Android/Apple here https://github.com/spotify/NFHTTP/pull/26
   - Key pros: Advertised a nice caching layer and called into native backends on iOS for efficiency.
-    - Note, iOS (in general) doesn't cache between apps, presumably for privacy. The benefit is just that Apple's code is rumored to make better use of the antennas than you can do via public APIs. This is alluded to in HFHTTP's README.
+    - Note, iOS (in general) doesn't cache between apps, presumably for privacy. The benefit is just that Apple's code is rumored to make better use of the antennas than you can do via public APIs. This is alluded to in NFHTTP's README.
   - Key cons: (Other than the security issue.) Mostly abandoned and out of use by Spotify. https://github.com/spotify/NFHTTP/issues/45
