@@ -13,7 +13,7 @@
 +// std::filesystem is available in macOS 10.15, iOS/tvOS 13.0, and watchOS 6.0.
 +// At least at the time of writing, most Apple users will have a deployment target older than that and therefore need to backport std::filesystem.
 +
-+// We're patching rather than contributing to CPR, since they'd want to implement the functionality one layer up, in cmake.
++// We're patching rather than contributing to CPR, since they'd want to implement the functionality one layer up, in cmake, to control linking at the same time, and we don't have comparative advantage there.
 +
 +// If making changes, note (Hedron internal): Also change //BuildingBlocks/Filesystem:Backport
 +#ifdef __APPLE__
