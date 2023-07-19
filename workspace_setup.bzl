@@ -44,9 +44,9 @@ def hedron_make_cc_https_easy():
         http_archive,
         name = "curl",
         build_file = "@hedron_make_cc_https_easy//:curl.BUILD",
-        url = "https://github.com/curl/curl/archive/curl-8_1_2.tar.gz",
-        sha256 = "670d6aee0e32c687f7721a499e716d56fd1985eccb3186fe81a2f8097b4bc1fb",
-        strip_prefix = "curl-curl-8_1_2",
+        url = "https://github.com/curl/curl/archive/curl-8_2_0.tar.gz",
+        sha256 = "3ee51ddc816d3047369a91ee13683b5f44c2be53f038823b217c35618bcd382b",
+        strip_prefix = "curl-curl-8_2_0",
     )
 
     # libcurl needs to bundle an SSL library on Android. We're using boringssl because it has easy Bazel support. Despite it's Google-only orientation, it's also used in, e.g., Envoy. But if LibreSSL had Bazel wrappings, we'd probably consider it.
