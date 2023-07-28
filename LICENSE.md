@@ -25,7 +25,7 @@ Hedron Vision Incorporated ("Hedron") hereby grants each recipient ("you") of th
 
 <!-- Contributions/improvements/feedback welcome. If public, they stay centrally with Hedron, as consideration for the free use to the extent required. -->
 
-We strongly encourage you to contribute improvements to the Software and to collaborate in making it better. To that end, you may publish your changes or feedback either publicly or to third parties--i.e., through a fork for a PR or an issue--but only as a temporary means of contributing those improvements back to [the main repository](https://github.com/hedronvision/bazel-compile-commands-extractor). You agree that Hedron retains all right, title, and interest in and to all such contributions. Further, you agree to not charge others for their use of this Software or for using your changes to this Software.
+We strongly encourage you to contribute improvements to the Software and to collaborate in making it better. To that end, you may publish your changes or feedback either publicly or to third parties--i.e., through a fork for a PR or an issue--but only as a temporary means of contributing those improvements back to [the main repository](https://github.com/hedronvision/bazel-make-cc-https-easy). You agree that Hedron retains all right, title, and interest in and to all such contributions. Further, you agree to not charge others for their use of this Software or for using your changes to this Software.
 
 ---
 
