@@ -5,24 +5,13 @@
 
 --- include/cpr/filesystem.h
 +++ include/cpr/filesystem.h
-@@ -4,0 +4,21 @@
+@@ -4,0 +4,10 @@
 +////////////////////////////////////////
 +// <Begin Hedron Patch>
 +
-+// On Apple platforms, use boost::filesystem to fulfill CPR's need for std::filesystem.
-+// std::filesystem is available in macOS 10.15, iOS/tvOS 13.0, and watchOS 6.0.
-+// At least at the time of writing, most Apple users will have a deployment target older than that and therefore need to backport std::filesystem.
-+
-+// We're patching rather than contributing to CPR, since they'd want to implement the functionality one layer up, in cmake, to control linking at the same time, and we don't have comparative advantage there.
-+
-+// If making changes, note (Hedron internal): Also change //BuildingBlocks/Filesystem:Backport
-+#ifdef __APPLE__
-+    #include <Availability.h>
-+    // Only backport if we're on something too old. New OSs (like visionOS), will have std::filesystem. This condition works because the preprocessor evaluates undefined macros to 0, and the *_OS_VERSION_MIN_REQUIRED macros are only defined when compiling for the platforms in their name.
-+    #if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_13_0 && __MACOS_OS_VERSION_MIN_REQUIRED < MAC_OS_X_VERSION_10_15 && __TV_OS_VERSION_MAX_ALLOWED < __TVOS_13_0 && __WATCH_OS_VERSION_MAX_ALLOWED < __WATCHOS_6_0 && (__IPHONE_OS_VERSION_MIN_REQUIRED || __MAC_OS_X_VERSION_MIN_REQUIRED || __TV_OS_VERSION_MAX_ALLOWED || __WATCH_OS_VERSION_MAX_ALLOWED)
-+        #define CPR_USE_BOOST_FILESYSTEM true
-+    #endif
++#include "backport/filesystem.hpp"
 +#endif
++#if false  // Ignore rest of file, without making the patch brittle by containing the rest of the file.
 +
 +// <End Hedron Patch>
 +////////////////////////////////////////

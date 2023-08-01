@@ -1,7 +1,7 @@
 # Do not change the filename; it is part of the user interface.
 
 
-load("@com_github_nelhage_rules_boost//:boost/boost.bzl", "boost_deps")
+load("@hedron_std_filesystem_backport//:workspace_setup.bzl", "hedron_backport_std_filesystem")
 
 
 def hedron_keep_cc_https_easy():
@@ -20,4 +20,4 @@ def hedron_keep_cc_https_easy():
         # https://github.com/bazelbuild/bazel/issues/5815
         # https://github.com/hedronvision/bazel-make-cc-https-easy/issues/14
 
-    boost_deps()
+    hedron_backport_std_filesystem()

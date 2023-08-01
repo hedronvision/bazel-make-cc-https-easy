@@ -4,5 +4,7 @@
 
 workspace(name = "hedron_make_cc_https_easy")
 
-load("@hedron_make_cc_https_easy//:workspace_setup.bzl", "hedron_compile_commands_setup")
-hedron_compile_commands_setup()
+load("@hedron_make_cc_https_easy//:workspace_setup.bzl", "hedron_make_cc_https_easy")
+hedron_make_cc_https_easy()
+load("@hedron_make_cc_https_easy//:transitive_workspace_setup.bzl", "hedron_keep_cc_https_easy")
+hedron_keep_cc_https_easy()

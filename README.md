@@ -27,6 +27,10 @@ load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 # Hedron's Bazel Rules for C++ HTTPS Requests
 # Makes @cpr, @curl, and @boringssl available for use
 # https://github.com/hedronvision/bazel-make-cc-https-easy
+# This also brings in @hedron_std_filesystem_backport to enable CPR across-platforms.
+# Lets you use the std::filesystem API on Apple platforms, where it wouldn't otherwise be available. # (Deployment targets before macOS 10.15, iOS/tvOS 13.0, and watchOS 6.0)
+# Just use fs:: as a drop-in replacement for std::filesystem.
+# For more, see: https://github.com/hedronvision/bazel-cc-filesystem-backport
 http_archive(
     name = "hedron_make_cc_https_easy",
 
@@ -34,7 +38,7 @@ http_archive(
     # Even better, set up Renovate and let it do the work for you (see "Suggestion: Updates" in the README).
     url = "https://github.com/hedronvision/bazel-make-cc-https-easy/archive/315416306204ce6bb2983b4a923815a7e89eb727.tar.gz",
     strip_prefix = "bazel-make-cc-https-easy-315416306204ce6bb2983b4a923815a7e89eb727",
-    # When you first run this tool, it'll recommend a sha256 hash to put here with a message like: "DEBUG: Rule 'hedron_compile_commands' indicated that a canonical reproducible form can be obtained by modifying arguments sha256 = ..."
+    # When you first run this tool, it'll recommend a sha256 hash to put here with a message like: "DEBUG: Rule 'hedron_make_cc_https_easy' indicated that a canonical reproducible form can be obtained by modifying arguments sha256 = ..."
 )
 load("@hedron_make_cc_https_easy//:workspace_setup.bzl", "hedron_make_cc_https_easy")
 hedron_make_cc_https_easy()
@@ -112,5 +116,7 @@ If you'd like it for Windows, we'd love your help. It should be a fair bit easie
 
 ## Other Projects Likely Of Interest
 
-If you're using Bazel for C or C++, it's likely you're also in need of a better tooling, like helping your editor understand your code and provide autocomplete.
-If so, please check out our other project, [hedronvision/bazel-compile-commands-extractor](https://github.com/hedronvision/bazel-compile-commands-extractor).
+If you're using Bazel for C or C++, you'll likely also want some of our other tooling, like...
+
+1. Helping your editor understand your code and provide autocomplete: [hedronvision/bazel-compile-commands-extractor](https://github.com/hedronvision/bazel-compile-commands-extractor)
+2. A way to use std::filesystem across platforms--which this repo already uses under the hood: [hedronvision/bazel-cc-filesystem-backport](https://github.com/hedronvision/bazel-cc-filesystem-backport)
