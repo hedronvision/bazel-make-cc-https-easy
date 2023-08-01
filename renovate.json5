@@ -6,7 +6,7 @@
 // (2) Add CI. Remove "requiredStatusChecks", below.
 // (3) Customize Renovate behavior further.
   // For docs, see: https://docs.renovatebot.com/configuration-options/
-  // To debug, it can be helpful to looks at Renovate's runs/logs: https://app.renovatebot.com/dashboard#github/hedronvision/bazel-make-cc-https-easy
+  // To debug, it can be helpful to looks at Renovate's runs/logs: https://developer.mend.io/[platform]/hedronvision/bazel-make-cc-https-easy
   // This file is .json5, so we can have helpful comments, like this one :) [Normal JSON, Renovate's default, has no comments.]
 // (4) Learn about what's going on here and what Renovate can do. Read on :)
 // If you need more help, contact @cpsauer.
@@ -38,5 +38,5 @@
   "prHourlyLimit": 0,
   // Has Renovate maintain an issue with the status of dependencies--and a manual run button. Super handy but was originally not on by default.
   "dependencyDashboard": true,
-  "dependencyDashboardHeader": "Organization members: Check Renovate logs here: https://app.renovatebot.com/dashboard#github/hedronvision/bazel-make-cc-https-easy", // Footer seems to prevent manual run checkbox, so I made this a header.
+  "dependencyDashboardHeader": "Organization members: Check Renovate logs here: https://developer.mend.io/[platform]/hedronvision/bazel-make-cc-https-easy", // Footer seems to prevent manual run checkbox, so I made this a header.
 }
