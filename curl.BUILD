@@ -31,7 +31,7 @@ cc_library(
 
 
 # Defines need updates to match https://github.com/curl/curl/commits/master/CMakeLists.txt
-# Done up to (but not including) 9/17/23 for 8.3.0 -- awaiting next release
+# Done up to (but not including) 10/11/23 for 8.4.0 -- awaiting next release
 # Flag sets fetched originally from CURL's ./configure. See https://curl.se/docs/install.html. The easiest way is to download the release archives rather than pure source, getting a pre-generated configure script, but you could also generate it for yourself with the instructions in GIT-INFO.
     # For Android, you can generate boringssl's libssl & libcrypto from the bazel-generated archives using:
         # $ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ar -rs bazel-out/android-arm64-v8a-opt/bin/external/boringssl/_objs/crypto/libcrypto.a bazel-out/android-arm64-v8a-opt/bin/external/boringssl/_objs/crypto/*.o
@@ -84,11 +84,8 @@ cc_library(
         "HAVE_POLL_H",
         "HAVE_PTHREAD_H",
         "HAVE_PWD_H",
-        "HAVE_SETJMP_H",
-        "HAVE_SIGNAL_H",
         "HAVE_STDBOOL_H",
         "HAVE_STRINGS_H",
-        "HAVE_STRING_H",
         "HAVE_SYS_IOCTL_H",
         "HAVE_SYS_PARAM_H",
         "HAVE_SYS_POLL_H",
@@ -102,12 +99,14 @@ cc_library(
         "HAVE_UNISTD_H",
 
         "HAVE_ALARM",
+        "HAVE_ARC4RANDOM",
         "HAVE_BASENAME",
         "HAVE_BUILTIN_AVAILABLE",
         "HAVE_FCHMOD",
         "HAVE_FCNTL",
         "HAVE_FCNTL_O_NONBLOCK",
         "HAVE_FNMATCH",
+        "HAVE_FSEEKO",
         "HAVE_FREEADDRINFO",
         "HAVE_GETADDRINFO",
         "HAVE_GETADDRINFO_THREADSAFE",
@@ -156,7 +155,7 @@ cc_library(
         "@platforms//cpu:x86_32": ["SIZEOF_LONG=4", "SIZEOF_SIZE_T=4", "SIZEOF_TIME_T=4"],
     }) + select({
         "@platforms//os:android": [
-            "USE_OPENSSL", "HAVE_BORINGSSL", "CURL_CA_PATH=\\\"/system/etc/security/cacerts\\\"",
+            "USE_OPENSSL", "CURL_CA_PATH=\\\"/system/etc/security/cacerts\\\"",
             "HAVE_CLOCK_GETTIME_MONOTONIC",
             "HAVE_GETHOSTBYNAME_R", "HAVE_GETHOSTBYNAME_R_6",
             # HAVE_GETIFADDRS in API level 24.
@@ -199,6 +198,7 @@ objc_library(
     name = "Apple",
     sdk_frameworks = [
         "CoreFoundation",
+        "CoreServices",
         "Security",
     ],
 )
