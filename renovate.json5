@@ -18,7 +18,7 @@
     "automerge": true, // Just automatically propose and merge in dependency upgrades to the latest.
     "automergeType": "branch", // No PR unless tests fail; just do it.
     "matchPackageNames" : [ // Add Bazel name= parameter here. <TAG0>.
-      // "boringssl",
+      "boringssl",
       "cpr",
       "hedron_std_filesystem_backport",
     ],
