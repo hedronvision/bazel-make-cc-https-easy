@@ -31,7 +31,7 @@ cc_library(
 
 
 # Defines need updates to match https://github.com/curl/curl/commits/master/CMakeLists.txt
-# Done up to (but not including) 10/11/23 for 8.4.0 -- awaiting next release
+# Done up to (but not including) 12/6/23 for 8.5.0 -- awaiting next release
 # Flag sets fetched originally from CURL's ./configure. See https://curl.se/docs/install.html. The easiest way is to download the release archives rather than pure source, getting a pre-generated configure script, but you could also generate it for yourself with the instructions in GIT-INFO.
     # For Android, you can generate boringssl's libssl & libcrypto from the bazel-generated archives using:
         # $ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ar -rs bazel-out/android-arm64-v8a-opt/bin/external/boringssl/_objs/crypto/libcrypto.a bazel-out/android-arm64-v8a-opt/bin/external/boringssl/_objs/crypto/*.o
@@ -73,7 +73,6 @@ cc_library(
         "STDC_HEADERS",
         "HAVE_ARPA_INET_H",
         "HAVE_FCNTL_H",
-        "HAVE_IDN2_H",
         "HAVE_IFADDRS_H",
         "HAVE_LIBGEN_H",
         "HAVE_NETDB_H",
@@ -107,6 +106,7 @@ cc_library(
         "HAVE_FCNTL_O_NONBLOCK",
         "HAVE_FNMATCH",
         "HAVE_FSEEKO",
+        "HAVE_DECL_FSEEKO", # https://github.com/curl/curl/commit/f4ff41080719099eec3475d93aed4c1b70a5447a and https://github.com/curl/curl/issues/12086 seem wrong for Bazel from our experiements; fseeko does seem available on Android pre API level 24, and __USE_FILE_OFFSET64 left undefined.
         "HAVE_FREEADDRINFO",
         "HAVE_GETADDRINFO",
         "HAVE_GETADDRINFO_THREADSAFE",
@@ -137,8 +137,6 @@ cc_library(
         "HAVE_STRERROR_R",
         "HAVE_STRTOK_R",
         "HAVE_STRTOLL",
-        "HAVE_VARIADIC_MACROS_C99",
-        "HAVE_VARIADIC_MACROS_GCC",
 
         "HAVE_GETHOSTNAME",
         "GETHOSTNAME_TYPE_ARG2=size_t",
