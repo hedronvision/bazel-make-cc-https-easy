@@ -174,7 +174,7 @@ cc_library(
         # See https://github.com/hedronvision/bazel-make-cc-https-easy/issues/2 if you're looking for more compression libraries
     ],
     linkopts = ["-lz"], # Android and Apple OSs bundle zlib. For Windows, see if we can reuse the one from rules_boost, but we should have a flag to control whether it's bundled. It's less of a no brainer when the OS doesn't provide it. See also discussion in https://github.com/nelhage/rules_boost/issues/274
-    deps = select({
+    implementation_deps = select({
         "@platforms//os:android" : ["@boringssl//:ssl"],
         # Merge these together if/when https://github.com/bazelbuild/platforms/issues/37 is resolved.
         "@platforms//os:macos" : [":Apple"],
