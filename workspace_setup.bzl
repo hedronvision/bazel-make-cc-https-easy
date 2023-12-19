@@ -57,7 +57,7 @@ def hedron_make_cc_https_easy():
     maybe(
         http_archive,
         name = "boringssl",
-        url = "https://github.com/hedronvision/boringssl/archive/58b7414ddae316805c248e23eca38f7c14678fd9.tar.gz",
-        sha256 = "e3863669b27af54fb82079a619110742021266d97fe2c2b7f6e146bfb85bfccc",
-        strip_prefix = "boringssl-58b7414ddae316805c248e23eca38f7c14678fd9",
+        url = "https://github.com/hedronvision/boringssl/archive/3898798232ea270aa45b3fe3d421f5465afcccca.tar.gz",
+        sha256 = "cc609be45a14bb955cb80977e830ee661f34276be0a0cc71209cf4bf5c8dea98",
+        strip_prefix = "boringssl-3898798232ea270aa45b3fe3d421f5465afcccca",
     )
