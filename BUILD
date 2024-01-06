@@ -4,6 +4,6 @@ filegroup(
     name = "bzl_srcs_for_stardoc",
     visibility = ["//visibility:public"],
     srcs = glob(["**/*.bzl"]) + [
-        "@bazel_tools//:bzl_srcs", "@hedron_std_filesystem_backport//:bzl_srcs_for_stardoc"
+        "@bazel_tools//tools:bzl_srcs", "@hedron_std_filesystem_backport//:bzl_srcs_for_stardoc"
     ],
 )
