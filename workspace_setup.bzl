@@ -32,9 +32,9 @@ def hedron_make_cc_https_easy():
     maybe(
         http_archive,
         name = "hedron_std_filesystem_backport",
-        url = "https://github.com/hedronvision/bazel-cc-filesystem-backport/archive/8d14b8b05e9dfbe59f110c9e8f69263b20105a5d.tar.gz",
-        sha256 = "b57665f7f8f20b78ba4b5a2920640546e583c204b6f0cd89cb056416f3aa4642",
-        strip_prefix = "bazel-cc-filesystem-backport-8d14b8b05e9dfbe59f110c9e8f69263b20105a5d",
+        url = "https://github.com/hedronvision/bazel-cc-filesystem-backport/archive/c99e3f3f1b2f00288894b2a0f8b003bc6ec5267f.tar.gz",
+        sha256 = "088628746c5341c99133c050adb0ca4bfbcfd12ee023523f5e0af83203f1bd6b",
+        strip_prefix = "bazel-cc-filesystem-backport-c99e3f3f1b2f00288894b2a0f8b003bc6ec5267f",
     )
     # hedron_backport_std_filesystem is called in transitive_workspace_setup
 
