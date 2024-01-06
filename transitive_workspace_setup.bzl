@@ -7,7 +7,8 @@ load("@hedron_std_filesystem_backport//:workspace_setup.bzl", "hedron_backport_s
 def hedron_keep_cc_https_easy():
     """Part 2 of setting up a WORKSPACE so you can easily make https requests from C++.
 
-    Sorry it can't be unified with hedron_make_cc_https_easy(). Bazel implementation restrictions."""
+    Sorry it can't be unified with hedron_make_cc_https_easy(). Bazel implementation restrictions.
+    """
 
     # Below the interface boundary:
     # This is needed to get transitive dependencies of transitive dependencies--by calling their deps functions.
