@@ -31,7 +31,7 @@ cc_library(
 
 
 # Defines need updates to match https://github.com/curl/curl/commits/master/CMakeLists.txt
-# Done up to (but not including) 1/31/24 for 8.6.0 -- awaiting next release
+# Done up to (but not including) 5/20/24 for 8.8.0 -- awaiting next release
 # Flag sets fetched originally from CURL's ./configure. See https://curl.se/docs/install.html. The easiest way is to download the release archives rather than pure source, getting a pre-generated configure script, but you could also generate it for yourself with the instructions in GIT-INFO.
     # For Android, you can generate boringssl's libssl & libcrypto from the bazel-generated archives using:
         # $ANDROID_NDK_ROOT/toolchains/llvm/prebuilt/darwin-x86_64/bin/llvm-ar -rs bazel-out/android-arm64-v8a-opt/bin/external/boringssl/_objs/crypto/libcrypto.a bazel-out/android-arm64-v8a-opt/bin/external/boringssl/_objs/crypto/*.o
@@ -53,7 +53,7 @@ cc_library(
     local_defines = [
         "BUILDING_LIBCURL",
         "HTTP_ONLY",
-        "ENABLE_IPV6",
+        "USE_IPV6",
         "CURL_DISABLE_NTLM", # Proprietary Microsoft auth you almost certainly don't need.
         # Generally, disabling features didn't seem to reduce library size much. Tried proxy, progress, auth. Reductions were only ~10kb, so we'll leave them in.
 
@@ -72,6 +72,7 @@ cc_library(
         # Could replace these with a header that has __has_include, if we ever wanted. Tensorflow's file has an example of injecting a header like that.
         "STDC_HEADERS",
         "HAVE_ARPA_INET_H",
+        "HAVE_DIRENT_H",
         "HAVE_FCNTL_H",
         "HAVE_IFADDRS_H",
         "HAVE_LIBGEN_H",
@@ -106,7 +107,7 @@ cc_library(
         "HAVE_FCNTL_O_NONBLOCK",
         "HAVE_FNMATCH",
         "HAVE_FSEEKO",
-        "HAVE_DECL_FSEEKO", # https://github.com/curl/curl/commit/f4ff41080719099eec3475d93aed4c1b70a5447a and https://github.com/curl/curl/issues/12086 seem wrong for Bazel from our experiements; fseeko does seem available on Android pre API level 24, and __USE_FILE_OFFSET64 left undefined.
+        "HAVE_DECL_FSEEKO",
         "HAVE_FREEADDRINFO",
         "HAVE_GETADDRINFO",
         "HAVE_GETADDRINFO_THREADSAFE",
@@ -120,6 +121,7 @@ cc_library(
         "HAVE_INET_NTOP",
         "HAVE_INET_PTON",
         "HAVE_MSG_NOSIGNAL",
+        "HAVE_OPENDIR",
         "HAVE_POSIX_STRERROR_R",
         "HAVE_RECV",
         "HAVE_SCHED_YIELD",
